@@ -22,4 +22,9 @@ RUN apk update && \
     apk upgrade && \
     apk add --update --no-cache \
     bash \
-    git
+    busybox-extras \
+    git \
+    mailx \
+    postfix
+
+RUN echo "relayhost = [sendgrid-maildev]:1025" >> /etc/postfix/main.cf
